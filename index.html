@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Thoughts for Gary</title>
+        <meta name="description" content="Interactive page pairing pictures of Gary Busey with quotes from Friedrich Nietzsche">
+        <link rel="stylesheet" href="main.css">
+        
+        <!-- Script to randomize the image.  Works, but hard-codes the filenames a little bit.  It would be better to dynamically create an array from the folder.
+            Right now it just gets a random number from 1 to 66, and I named the files 1.jpg, 2.jpg, etc.
+-->     <!--TODO make images a fixed size-->
+        <script type="text/javascript">
+            function getImage() {
+                var randomNum = Math.floor(Math.random() * 66 + 1);
+                var imgString = randomNum.toString();
+                var img = '<img alt=\"Gary\'s goofy mug should be here" src=\"public/images/';
+                img += imgString + '.jpg\" />'
+                return img;
+            }
+        
+        </script>
+        <!--Script to read the txt file and grab a quote.  Mostly taken from https://stackoverflow.com/questions/30944764/javascript-create-array-from-local-file-txt-->
+        <script type="text/javascript">
+            function getQuote(){
+                var array = [];
+                var xmlhttp;
+                var quote = document.createTextNode("");
+                var h = document.createElement("H3");
+                if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else { // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var text = xmlhttp.responseText;
+                        // Now convert it into array using regex
+                        array = text.split(/\n|\r/g);
+                        console.log(array);
+                        //Then randomly select an item from the array.
+                        var quoteIndex = Math.floor(Math.random() * array.length);
+                        quote = array[quoteIndex];
+                        //Checks for null entries.  Not sure why they're appearing in the array but this code seems to work to weed them out.
+                        if (quote != ""){
+                            var quote = array[quoteIndex];
+                            console.log(quoteIndex);
+                            console.log(quote);
+                            //experimental
+                            h.innerHTML = quote;
+                            document.getElementById("quote").innerHTML = quote;
+                        } else {
+                            console.log("Error: empty quote variable.")
+                            xmlhttp.onreadystatechange;
+                            getQuote();
+                        }
+
+                    }
+
+                }
+            xmlhttp.open("GET", "quotes.txt", true);
+            xmlhttp.send();
+
+       }
+        </script>
+    </head>
+    <body>
+        
+        <h1>What's Gary thinking now?</h1>
+ 
+        <!--Calls the function to display the random image-->
+        <script type="text/javascript">
+            document.write(getImage());
+        </script>
+       
+        <!--Calls the function to get a random quote. TODO put the text on top of the image like a meme.-->
+        <h3 id="quote">
+            <script type-"text/javascript">
+                document.write(getQuote());
+            </script>
+        </h3>
+
+        
+        
+        <!--Button to reload page.  TODO: change format/size. -->
+        <button onclick="window.location.reload();">Think Again, Gary!</button>
+        <br> <br> <br> <br> <br> <br> <br> <br> 
+
+        <p> <font size="2">
+            Disclaimer: None of the images or quotes on this page are mine.  Everything was taken from the web without permission.  Busey did not actually say any of these quotes, and they are in fact all from the philosopher Friedrich Nietzche, at least according to another web search without a lot of vetting.  This site is intended for the purpose of humor only, with apologies to Mr. Busey.  I really don't have anything against him, I promise.
+            </font></p>
+
+        
+    </body>
+</html>
+<!--
+
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[     CODE THE WEB     ]:::::]
+    [:::::[  http://brackets.io  ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [:::::[                      ]:::::]
+    [::::::[[[[[[[:      :]]]]]]]::::::]
+    [::::::::::::::      ::::::::::::::]
+    [::::::::::::::      ::::::::::::::]
+    [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
+
+-->
