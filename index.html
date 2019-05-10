@@ -9,18 +9,21 @@
         <meta name="description" content="Interactive page pairing pictures of Gary Busey with quotes from Friedrich Nietzsche">
         <link rel="stylesheet" href="main.css">
         
-        <!-- Script to randomize the image.  Works, but hard-codes the filenames a little bit.  It would be better to dynamically create an array from the folder.
+        <!-- Script to randomize the image.  Works, but hard-codes the filenames a little bit.  TODO: It would be better to dynamically create an array from the folder.
             Right now it just gets a random number from 1 to 66, and I named the files 1.jpg, 2.jpg, etc.
 -->     
         <!--TODO: crop images so everything will fit on the screen at 800px width.-->
         <!--TODO: edit page style to look better.-->
+        <!--TOTO: get text to stay inside the image with a fixed height instead of width click 
+            the picture instead..-->
+        <!--TODO: Make the text outline stand out more.  Make text not italic.-->
         
         <script type="text/javascript">
             function getImage() {
                 var randomNum = Math.floor(Math.random() * 77 + 1);
                 var imgString = randomNum.toString();
                 var img = '<img alt=\"Gary\'s goofy mug should be here" src=\"public/images/';
-                img += imgString + '.jpg\" width="800"/>'
+                img += imgString + '.jpg\" width="800" onclick="window.location.reload();"/>'
                 return img;
             }
         
@@ -94,6 +97,9 @@
     <body>
         
         <h1>What's Gary thinking now?</h1>
+        
+                <!--Button to reload page.  TODO: change format/size. -->
+       <!-- <button onclick="window.location.reload();">Think Again, Gary!</button> -->
  
         <div class="container">
         <!--Calls the function to display the random image-->
