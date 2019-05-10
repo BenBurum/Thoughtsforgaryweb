@@ -67,3 +67,25 @@ button {
         filter: grayscale(0%);
     }
 }
+
+.container {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 20px;
+    margin: auto;
+    left: 20px;
+    right: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}

@@ -11,14 +11,16 @@
         
         <!-- Script to randomize the image.  Works, but hard-codes the filenames a little bit.  It would be better to dynamically create an array from the folder.
             Right now it just gets a random number from 1 to 66, and I named the files 1.jpg, 2.jpg, etc.
--->     <!--TODO make images a fixed size-->
+-->     
+        <!--TODO: crop images so everything will fit on the screen at 800px width.-->
+        <!--TODO: edit page style to look better.-->
         
         <script type="text/javascript">
             function getImage() {
                 var randomNum = Math.floor(Math.random() * 66 + 1);
                 var imgString = randomNum.toString();
                 var img = '<img alt=\"Gary\'s goofy mug should be here" src=\"public/images/';
-                img += imgString + '.jpg\" height="600"/>'
+                img += imgString + '.jpg\" width="800"/>'
                 return img;
             }
         
@@ -68,7 +70,7 @@
                         quote = array[quoteIndex];
                         //Checks for null entries.  Not sure why they're appearing in the array but this code seems to work to weed them out.
                         if (quote != ""){
-                            var quote = array[quoteIndex];
+                            var quote = '<div class="bottom-text">' + array[quoteIndex] + '</div>';
                             console.log(quoteIndex);
                             console.log(quote);
                             //experimental
@@ -93,18 +95,19 @@
         
         <h1>What's Gary thinking now?</h1>
  
+        <div class="container">
         <!--Calls the function to display the random image-->
-        <script type="text/javascript">
-            document.write(getImage());
-        </script>
-       
-        <!--Calls the function to get a random quote. TODO put the text on top of the image like a meme.-->
-        <h3 id="quote">
-            <script type-"text/javascript">
-                document.write(getQuote());
+            <script type="text/javascript">
+                document.write(getImage());
             </script>
-        </h3>
-
+        
+        <!--Calls the function to get a random quote.-->
+            <h3 id="quote">
+                <script type-"text/javascript">
+                    document.write(getQuote());
+                </script>
+            </h3>
+        </div>
         
         
         <!--Button to reload page.  TODO: change format/size. -->
