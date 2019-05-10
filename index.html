@@ -12,16 +12,39 @@
         <!-- Script to randomize the image.  Works, but hard-codes the filenames a little bit.  It would be better to dynamically create an array from the folder.
             Right now it just gets a random number from 1 to 66, and I named the files 1.jpg, 2.jpg, etc.
 -->     <!--TODO make images a fixed size-->
+        
         <script type="text/javascript">
             function getImage() {
                 var randomNum = Math.floor(Math.random() * 66 + 1);
                 var imgString = randomNum.toString();
                 var img = '<img alt=\"Gary\'s goofy mug should be here" src=\"public/images/';
-                img += imgString + '.jpg\" />'
+                img += imgString + '.jpg\" height="600"/>'
                 return img;
             }
         
-        </script>
+        </script> 
+        <!--This script was mostly copied from https://code-maven.com/list-content-of-directory-with-nodejs.  It is supposed to read the file names from a dir into an array.-
+        <script type="text/javascript"> 
+            function getImage() {
+                    var fs = require('fs');
+
+
+                    if (process.argv.length <= 2) {
+                        console.log("Usage: " + __filename + " path/to/directory");
+                        process.exit(-1);
+                    }
+
+                    var path = process.argv[2];
+
+                    fs.readdir(path, function(err, items) {
+                        console.log(items);
+
+                        for (var i=0; i<items.length; i++) {
+                            console.log(items[i]);
+                        }
+                    });
+                }
+        </script> -->
         <!--Script to read the txt file and grab a quote.  Mostly taken from https://stackoverflow.com/questions/30944764/javascript-create-array-from-local-file-txt-->
         <script type="text/javascript">
             function getQuote(){
