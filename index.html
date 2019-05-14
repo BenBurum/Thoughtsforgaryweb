@@ -17,10 +17,11 @@
         <!--TODO: get text to stay inside the image with a fixed height instead of width-->
         <!--TODO: Make the text outline stand out more.-->
         <!--TODO: Make the text bigger (and remove long quotes) to show up better on mobile -- or make a separate mobile version.-->
+        <!--TODO: Get the disclaimer to appear below the body, not in it.-->
         
         <script type="text/javascript">
             function getImage() {
-                var randomNum = Math.floor(Math.random() * 77 + 1);
+                var randomNum = Math.floor(Math.random() * 79 + 1);
                 var imgString = randomNum.toString();
                 var img = '<img alt=\"Gary\'s goofy mug should be here" src=\"public/images/';
                 img += imgString + '.jpg\" width="800" onclick="window.location.reload();"/>'
@@ -125,7 +126,14 @@
 
         
     </body>
+    <div style="position: relative;  width: 800px;">
+        <div style="position: absolute; bottom: 5px">
+            
+        </div>
+    </div>
+    
 </html>
+
 <!--
 
     [[[[[[[[[[[[[[[      ]]]]]]]]]]]]]]]
