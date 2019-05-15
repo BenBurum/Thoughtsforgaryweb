@@ -1,5 +1,5 @@
 html {
-    background: #ccd9ff; /*Some that look pretty good: 4b0026, 38001c, 45001f,  (Burgundy) 381604 (brown) 2e0101 (Maroon) 01041a (navy blue) b5c0ff (light blue) 858585 (gray)5e6160 (medium-dark gray) 333333 (dark gray) */
+    background: #ccd9ff; /*Some that look pretty good: 4b0026, 38001c, 45001f,  (Burgundy) 381604 (brown) 2e0101 (Maroon) 01041a (navy blue) ccd9ff (light blue) 858585 (gray)5e6160 (medium-dark gray) 333333 (dark gray) */
     
     /*background-image: linear-gradient(270deg, rgb(230, 233, 233) 0%, rgb(216, 221, 221) 100%); */
     -webkit-font-smoothing: antialiased;
@@ -93,6 +93,10 @@ button {
 
 }
 
-footer {
-    float
+.footer {
+    position: fixed;
+    text-align: center;
+    bottom: 5px;
+    width: 800px;
+    float: left;
 }
